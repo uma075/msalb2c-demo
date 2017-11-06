@@ -10,10 +10,10 @@ export class MSALService {
     // };
 
     private applicationConfig: any = {
-        clientID: 'ccc68d0a-7f70-4233-b295-5e676fa403e2',
+        clientID: 'ddc68d0a-7f70-4233-b295-5e676fa403e2',
         authority: 'https://login.microsoftonline.com/tfp/demob2ccompany.onmicrosoft.com/B2C_1_Signup1',
         b2cScopes: ['https://demob2ccompany.onmicrosoft.com/user.read'],
-        redirectUrl: 'http://localhost:4200',
+        redirectUrl: 'https://msalb2c-demo.azurewebsites.net/',
         extraQueryParameter: 'p=B2C_1_signin&scope=openid&nux=1'
     };
 
