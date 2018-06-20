@@ -13,7 +13,7 @@ export class MSALService {
         clientID: 'ddc68d0a-7f70-4233-b295-5e676fa403e2',
         authority: 'https://login.microsoftonline.com/tfp/demob2ccompany.onmicrosoft.com/B2C_1_Signup1',
         b2cScopes: ['https://demob2ccompany.onmicrosoft.com/user.read'],
-        redirectUrl: 'https://msalb2c-demo.azurewebsites.net/',
+        redirectUrl: 'http://localhost:4200',
         extraQueryParameter: 'p=B2C_1_signin&scope=openid&nux=1'
     };
 
@@ -22,7 +22,7 @@ export class MSALService {
     constructor() {
         this.app = new UserAgentApplication(this.applicationConfig.clientID, this.applicationConfig.authority,
             (errorDesc, token, error, tokenType) => {
-               console.log(token);
+              // console.log(token);
             }, { redirectUri: this.applicationConfig.redirectUrl });
         // this.app.redirectUri=this.applicationConfig.redirectUrl;
     }
@@ -47,14 +47,14 @@ export class MSALService {
     public getToken() {
         return this.app.acquireTokenSilent(this.applicationConfig.b2cScopes)
             .then(accessToken => {
-                console.log(accessToken);
+               // console.log(accessToken);
                 return accessToken;
             }, error => {
                 return this.app.acquireTokenPopup(this.applicationConfig.b2cScopes)
                     .then(accessToken => {
                         return accessToken;
                     }, err => {
-                        console.error(err);
+                     //  console.error(err);
                     });
             });
     }
